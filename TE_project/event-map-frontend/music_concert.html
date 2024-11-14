@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Concert Event</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2e4; /* Creamy background */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #004d40;
+            color: #ffffff;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: white; /* White color for "Baraiqsh Map" */
+        }
+        header nav {
+            margin-top: 5px;
+        }
+        header nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        header nav a:hover {
+            color: #cce7ff;
+        }
+        .container {
+            max-width: 70%;
+            margin: auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 100px; /* To adjust for the fixed header */
+        }
+        h1 {
+            text-align: center;
+            color: #2d572c; /* Green color */
+        }
+        .event-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .event-details {
+            margin-top: 20px;
+        }
+        .event-details h2 {
+            color: #2d572c; /* Green color */
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: block;
+            width: fit-content;
+            padding: 10px 20px;
+            background-color: #2d572c; /* Green color */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: auto;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #204522; /* Darker green */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Event_Images/logo.png" alt="Baraiqsh Logo" width="40" height="40" align="left">
+        <h1 >Baraiqsh Map</h1>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/about">About</a>
+            <a href="/index">Map</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Music Concert</h1>
+        <img src="../Event_Images/music_concert.jpg" alt="Music Concert" class="event-image">
+        <div class="event-details">
+            <h2>About the Event</h2>
+            <h3>Date: July 27, 2024</h3>
+            <h3>Price: 18000 тг</h3>
+            <div class="rating">
+                Rating: 
+                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span> (4.9)
+            </div>
+            <p class="description">
+                Live music in Central Park this Saturday evening. Join us for an unforgettable night of entertainment and fun!
+            </p>
+        </div>
+        <a href="/buy_ticket" class="btn">Buy Ticket</a>
+    </div>
+</body>
+</html>

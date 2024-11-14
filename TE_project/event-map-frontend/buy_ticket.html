@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Ticket</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2e4; /* Creamy background */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #004d40;
+            color: #ffffff;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        header nav {
+            margin-top: 5px;
+        }
+        header nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        header nav a:hover {
+            color: #cce7ff;
+        }
+        .container {
+            max-width: 70%;
+            margin: auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 100px; /* To adjust for the fixed header */
+        }
+        h2 {
+            text-align: center;
+            color: #2d572c; /* Green color */
+        }
+        .ticket-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ticket-form input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #2d572c; /* Green color */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #204522; /* Darker green */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Event_Images/logo.png" alt="Baraiqsh Logo" width="40" 
+        height="40" align="left">
+        <h1>Baraiqsh Map</h1>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/about">About</a>
+            <a href="/index">Map</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Purchase Your Ticket</h2>
+        <form class="ticket-form">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="number" placeholder="Number of Tickets" min="1" required>
+            <input type="text" placeholder="Payment Method" required>
+            <a href="#" class="btn">Confirm Purchase</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e6f2e6, #ffffff);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #003366, #006666);
+    padding: 15px 20px;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: center; /* Center the nav items */
+    background-color: #004d40;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #e6f2e6;
+}
+
+.container {
+    padding: 30px;
+    max-width: 800px; /* Constrain container width */
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #004d40;
+    margin-bottom: 20px;
+}
+
+/* Events section styling */
+.events-section {
+    margin: 30px 0;
+    max-height: 400px; /* Reduce height to occupy less space */
+}
+
+.events-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #004d40;
+    border-bottom: 2px solid #004d40;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+/* Slider styling */
+.slider-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    max-width: 100%; /* Constrain slider width */
+    height: 250px; /* Set fixed height for smaller event cards */
+}
+
+.event-card {
+    width: 180px; /* Set a smaller width */
+    min-width: 180px;
+    flex: 0 0 auto;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 10px;
+    box-sizing: border-box;
+    max-height: 100%; /* Limit height */
+}
+
+.event-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.event-card img {
+    width: 100%;
+    height: 100px; /* Smaller image height */
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.event-card h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #003366;
+}
+
+.event-card p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 12px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #004d40;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .slider-container {
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+    .container {
+        padding: 20px;
+    }
+    .events-section {
+        margin: 20px 0;
+    }
+    .event-card {
+        width: 150px;
+        min-width: 150px;
+    }
+}

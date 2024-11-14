@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Baraiqsh</title>
+    <link rel="stylesheet" href="styles/signup.css">
+    <script>
+        function redirectToSignIn() {
+            // Redirect to the sign-in page
+            window.location.href = '/'; // Change '/signin' to the actual path of your sign-in page
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Start your journey with Baraiqsh! <span>🏔️</span></h1>
+        <p>Let's get to know each other!</p>
+        <form onsubmit="event.preventDefault(); redirectToSignIn();">
+            <input type="text" name="name" placeholder="Enter Name" required>
+            <input type="tel" name="phone" placeholder="+7 (| )" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <input type="password" name="repeat-password" placeholder="Repeat Password" required>
+            <div class="checkbox-container">
+                <input type="checkbox" name="terms" required>
+                <label for="terms">I agree to the terms of the <a href="#">user agreement</a></label>
+            </div>
+            <button type="submit">Sign up</button>
+        </form>
+    </div>
+</body>
+</html>

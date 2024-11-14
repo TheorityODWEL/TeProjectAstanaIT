@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css"> 
+    <style>
+        /* Add some basic styles for the legend */
+        .legend {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+        }
+        .legend h4 {
+            margin: 0 0 10px;
+            font-size: 16px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+        /* Styles for filter colors */
+        .filter-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .filter-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Event_Images/logo.png" alt="Baraiqsh Logo" width="40" height="40" align="left">
+        <h1>Baraiqsh Map</h1>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/about">About</a>
+            <a href="/index">Map</a>
+        </nav>
+    </header>
+
+    <div id="map"></div>
+
+    <div class="panel">
+        <h3>Filter Events</h3>
+        <div>
+            <div class="filter-label">
+                <div class="filter-color" style="background-color: purple;"></div>
+                <label><input type="checkbox" name="event-type" value="music"> Music</label>
+            </div>
+            <div class="filter-label">
+                <div class="filter-color" style="background-color: blue;"></div>
+                <label><input type="checkbox" name="event-type" value="art"> Art</label>
+            </div>
+            <div class="filter-label">
+                <div class="filter-color" style="background-color: green;"></div>
+                <label><input type="checkbox" name="event-type" value="tech"> Tech</label>
+            </div>
+            <div class="filter-label">
+                <div class="filter-color" style="background-color: red;"></div>
+                <label><input type="checkbox" name="event-type" value="food"> Food</label>
+            </div>
+            <div class="filter-label">
+                <div class="filter-color" style="background-color: orange;"></div>
+                <label><input type="checkbox" name="event-type" value="sport"> Sport</label>
+            </div>
+        </div>
+        <input type="number" id="event-radius" placeholder="Enter radius in meters">
+        <button onclick="applyFilters()">Apply Filters</button>
+        <div id="event-info" style="display:none;"></div>
+    </div>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Event Map. All rights reserved.</p>
+    <p>Follow us on 
+        <a href="#" target="_blank">Twitter</a>, 
+        <a href="#" target="_blank">Facebook</a>, 
+        <a href="#" target="_blank">Instagram</a>.
+    </p>
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([51.091013, 71.418085], 12); // User location
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        let markers = [];
+        let userMarker = null;
+        let userCircle = null;
+
+        // Function to create user location marker
+        function createUserMarker() {
+            if (userMarker) {
+                map.removeLayer(userMarker);
+            }
+            userMarker = L.marker([51.091013, 71.418085]).addTo(map).bindPopup('You are here').openPopup();
+        }
+
+        // Function to create event markers
+        function createEventMarker(lon, lat, title, description, type, image, date, price, rating, url) {
+        const markerColor = getMarkerColor(type);
+        const marker = L.circleMarker([lat, lon], {
+            radius: 8,
+            color: markerColor,
+            fillColor: markerColor,
+            fillOpacity: 0.5
+        }).addTo(map);
+
+        marker.on('click', () => showEventCard(title, description, type, image, date, price, rating, url));
+
+        return marker;
+
+        }
+
+        // Function to get marker color based on event type
+            function getMarkerColor(type) {
+            switch (type) {
+                case 'music':
+                    return 'purple';
+                case 'art':
+                    return 'blue';
+                case 'tech':
+                    return 'green';
+                case 'food':
+                    return 'red';
+                case 'sport':
+                    return 'orange'; // Add a color for sport events
+                default:
+                    return 'gray';
+            }
+        }
+        function showEventCard(title, description, type, image, date, price, rating, url) {
+            const infoPanel = document.getElementById("event-info");
+            infoPanel.style.display = "block";
+            infoPanel.innerHTML = `
+                <div class="event-card">
+                    <img src="${image}" alt="${title}">
+                    <h3>${title}</h3>
+                    <p>${description}</p>
+                    <p>Date: ${date}</p>
+                    <p>Price: ${price}</p>
+                    <p>Rating: ${rating}</p>
+                    <a href="${url}" class="event-button">Go to the Event Page</a>
+                </div>
+            `;
+}
+        // Function to show event information in a panel
+        function showEventInfo(title, description, type) {
+            const infoPanel = document.getElementById("event-info");
+            infoPanel.style.display = "block";
+            infoPanel.innerHTML = `<strong>${title}</strong><br>${description}<br>Type: ${type}`;
+        }
+
+        // Function to update user radius circle
+        function updateUserRadiusCircle(radius) {
+            const radiusInKm = radius / 1000; // Convert to kilometers
+
+            if (userCircle) {
+                map.removeLayer(userCircle);
+            }
+
+            userCircle = L.circle([51.091013, 71.418085], {
+                color: 'blue',
+                fillColor: 'rgba(0, 0, 255, 0.2)',
+                fillOpacity: 0.5,
+                radius: radius // Radius in meters
+            }).addTo(map);
+        }
+
+        // Function to apply filters and fetch events
+        async function applyFilters() {
+    const eventTypeElements = document.querySelectorAll('input[name="event-type"]:checked');
+    const eventTypes = Array.from(eventTypeElements).map(el => el.value).join(',');
+    const radius = document.getElementById("event-radius").value;
+
+    console.log(`Applying filters with types: ${eventTypes}, radius: ${radius}`);
+
+    // Update the user radius circle only if a radius is specified
+    if (radius) {
+        updateUserRadiusCircle(radius);
+    } else if (userCircle) {
+        // Remove the radius circle if the user did not specify a distance
+        map.removeLayer(userCircle);
+        userCircle = null;
+    }
+
+    // Adjust the radius parameter in the fetch request
+    const radiusParam = radius ? `radius=${radius}` : '';
+
+    try {
+        // Fetch events with or without radius filter based on user input
+        const response = await fetch(`/api/events?${radiusParam}&event_types=${eventTypes}`);
+        const data = await response.json();
+        console.log("Fetched events data:", data);
+
+        // Clear existing markers
+        markers.forEach(marker => map.removeLayer(marker));
+        markers = [];
+
+        // Create new markers based on the fetched data
+        data.events.forEach(event => {
+    const marker = createEventMarker(
+        event.lon,
+        event.lat,
+        event.title,
+        event.description,
+        event.type,
+        event.image,
+        event.date,
+        event.price,
+        event.rating,
+        event.url
+    );
+    markers.push(marker);
+});
+
+        // Re-create the user marker after clearing other markers
+        createUserMarker();
+    } catch (error) {
+        console.error("Error fetching events or creating markers:", error);
+    }
+}
+
+
+
+        // Initial user marker
+        createUserMarker();
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BARAIQsh</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2e4; /* Creamy background */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #004d40;
+            color: #ffffff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Space between logo and nav */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        header img {
+            height: 40px; /* Adjust height as needed */
+            width: auto; /* Maintain aspect ratio */
+            margin-right: 15px; /* Space between logo and title */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            flex-grow: 1; /* Allow title to take available space */
+            text-align: center; /* Center the title */
+        }
+        nav {
+            display: flex;
+            justify-content: center; /* Center the nav items */
+            flex-grow: 2; /* Allow nav to take available space */
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #cce7ff;
+        }
+        .container {
+            max-width: 70%;
+            margin: auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 100px; /* To adjust for the fixed header */
+        }
+        h2 {
+            text-align: center;
+            color: #2d572c; /* Green color */
+        }
+        .description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .image-container img {
+            width: 100%; /* Adjust width to fit three images in one line */
+            margin: 0 5px; /* Space between images */
+            border-radius: 10px;
+        }
+        .developer-label {
+            text-align: center;
+            margin-top: 5px;
+            font-weight: bold;
+            color: #2d572c; /* Green color for labels */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Event_Images/logo.png" alt="BARAIQsh Logo"> <!-- Add your logo image here -->
+        <h1>Baraiqsh Map</h1>
+        <nav>
+          <a href="/home">Home</a>
+          <a href="#about">About</a>
+          <a href="/index">Map</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>About BARAIQsh</h2>
+        <p class="description">
+            Interactive event map “BARAIQsh”<br><br>
+            BARAIQsh is a real-time event discovery platform that, at its core, allows users to browse through local events according to preference and proximity. Through the aggregation of events from several sources, the web-based app provides an intuitive map interface with personalized, geolocation-based recommendations, geared towards the needs of every individual consumer.<br><br>
+            Our system is special because it makes personalized recommendations on events to users, considering users' interests and preferred price ranges, including real-time updates. We are different from the leading competitors like Eventbrite and Meetup. We have also mastered real-time notifications—the thing that is very important for late-minute changes or emergencies—something most of our competitors fail to do effectively at scale. That said, there are a couple of areas we need to grow into. Building brand awareness is important, since existing sites like Eventbrite and Meetup have a large user base and visibility. Also, while Meetup has been focusing on community-driven events, we believe there could be an opportunity to build unique experiences inside the community that could give our users even more amazing depth of event discovery.<br><br>
+            During the course of this project, the team conducted a customer development study. Of course, it is worth considering that we chose the respondents on the basis of availability, but still, it provided valuable insights into user preferences and behaviors. The feedback indicated a strong desire for a more personalized event discovery experience, which we aim to deliver through our platform. By leveraging user data and preferences, we can enhance the relevance of the events presented, ensuring that users find what they are truly interested in. This approach not only improves user satisfaction but also fosters a sense of community among event-goers, as they discover and attend events that resonate with their interests. Additionally, we plan to implement features such as user-generated content, where attendees can share their experiences and reviews of events. This will not only enrich the platform but also create a vibrant community around event participation. Our goal is to make BARAIQsh not just a tool for finding events, but a hub for community engagement and interaction. We are excited about the potential of this project and look forward to bringing it to life, making event discovery a seamless and enjoyable experience for everyone.
+        </p>
+        <div class="image-container">
+            <div>
+                <img src="Event_Images/astanait.png" alt="Event 1">
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

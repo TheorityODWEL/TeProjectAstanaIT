@@ -1,0 +1,187 @@
+header {
+    background-color: #004d40;
+    color: #ffffff;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header nav {
+    margin-top: 5px;
+}
+
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #cce7ff;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #82c0ff;
+}
+
+body {
+    padding-top: 60px; /* To avoid content hiding under the fixed header */
+}
+  body {  
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+  }
+
+  #map {
+      height: 600px;
+      width: 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      margin-bottom: 20px;
+  }
+
+  .panel {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      width: 250px;
+  }
+
+  .panel h3 {
+      margin: 0;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #333;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 5px;
+  }
+
+  .panel label {
+      display: block;
+      margin: 5px 0;
+      font-size: 14px;
+      color: #555;
+  }
+
+  .panel input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+  }
+
+  .panel button {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+  }
+
+  .panel button:hover {
+      background-color: #217dbb;
+  }
+
+  #event-info {
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+      font-size: 14px;
+  }
+
+  .leaflet-popup-content-wrapper {
+      border-radius: 8px;
+  }
+
+  .leaflet-popup-tip-container {
+      display: none;
+  }
+
+  /* Add some animations */
+  .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .event-card {
+    width: 180px; /* Set a smaller width */
+    min-width: 180px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+    max-height: 100%; /* Limit height */
+}
+
+.event-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.event-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.event-button:hover {
+    background-color: #217dbb;
+}
+
+  @keyframes fadeIn {
+      0% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 1;
+      }
+  }
